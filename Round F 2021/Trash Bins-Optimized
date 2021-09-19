@@ -1,0 +1,22 @@
+t = int(input())
+c = 1
+while (t):
+    n = int(input())
+    S = input().strip()
+    left = [None] * n
+    curr = float("-inf")
+    for i, ci in enumerate(S):
+        if ci == '1':
+            curr = i
+        left[i] = curr
+    result = 0
+    curr = float("inf")
+    for i in reversed(range(len(S))):
+        if S[i] == '1':
+            curr = i
+        result += min(i - left[i], curr - i)
+
+    print("Case #", c, ": ", result, sep='')
+    c += 1
+    t -= 1
+    
