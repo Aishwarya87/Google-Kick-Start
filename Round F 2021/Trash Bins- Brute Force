@@ -1,0 +1,22 @@
+t= int(input())
+c=1
+while(t):
+    n= int(input())
+    houses= input()
+    temp1=[]
+    for i in range(n):
+        if houses[i]=='1':
+            temp1.append(i)
+    
+    sum=0
+    for i in range(n):
+        if houses[i]=='0':
+            mini=float("inf")
+            for x in temp1:
+                if abs(x-i)<mini:
+                    mini=abs(x-i)
+            sum+=mini
+    
+    print("Case #",c,": ",sum,sep='')
+    c+=1
+    t-=1
